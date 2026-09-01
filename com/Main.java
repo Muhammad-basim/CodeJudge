@@ -10,6 +10,7 @@ import javafx.scene.chart.CategoryAxis;
 import javafx.scene.chart.LineChart;
 import javafx.scene.chart.NumberAxis;
 import javafx.scene.chart.XYChart;
+import javafx.scene.image.Image;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.Priority;
@@ -393,6 +394,8 @@ public class Main extends Application {
         Scene scene = new Scene(mainLayout, 950, 650);
 
         primaryStage.setTitle("CodeJudge — AI Code Quality Tracker");
+        Image appIcon = new Image(getClass().getResourceAsStream("CJ_logo.png"));
+        primaryStage.getIcons().add(appIcon);
         primaryStage.setScene(scene);
         scene.getStylesheets().add(getClass().getResource("style.css").toExternalForm());
         primaryStage.show();
@@ -427,6 +430,8 @@ public class Main extends Application {
         Scene splashScene = new Scene(splashLayout);
         splashScene.setFill(Color.TRANSPARENT);
         splashScene.getStylesheets().add(getClass().getResource("style.css").toExternalForm());
+        Image appIcon = new Image(getClass().getResourceAsStream("CJ_logo.png"));
+        splashStage.getIcons().add(appIcon);
         splashStage.setScene(splashScene);
         splashStage.centerOnScreen();
         splashStage.show();
