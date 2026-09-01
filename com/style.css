@@ -1,0 +1,388 @@
+.root {
+    -fx-background-color: #0B0C10;
+    -fx-font-family: "Segoe UI Semibold", "Segoe UI", sans-serif;
+}
+.text-area, .code-font {
+    -fx-font-family: "Cascadia Code", "Consolas", monospace;
+    -fx-prompt-text-fill: #45A29E;
+}
+
+.text-area .prompt-text, .text-field {
+    -fx-prompt-text-fill: #45A29E !important;
+}
+
+.radio-button {
+    -fx-text-fill: #C5C6C7;
+}
+
+.card {
+    -fx-background-color: #1F2833;
+    -fx-background-radius: 10px;
+    -fx-padding: 20px;
+    -fx-effect: dropshadow(gaussian, rgba(102,252,241,0.15), 12, 0, 0, 2);
+}
+
+.stat-value {
+    -fx-font-size: 14px;
+    -fx-text-fill: #45A29E  !important;
+}
+
+.stat-label {
+    -fx-font-size: 20px !important;
+    -fx-font-weight: bold;
+    -fx-text-fill: #66FCF1 !important;
+}
+
+/* Force layout containers to be transparent so root background shows through */
+VBox, HBox, BorderPane, SplitPane, ScrollPane, .split-pane > .split-pane-divider {
+    -fx-background-color: transparent;
+}
+
+TextFlow{
+    -fx-min-height: 140px;
+}
+
+.label, .tab-label {
+    -fx-text-fill: #C5C6C7;
+    -fx-font-size: 13px;
+}
+
+.button {
+    -fx-background-color: #66FCF1;
+    -fx-text-fill: #0B0C10;
+    -fx-font-weight: bold;
+    -fx-background-radius: 6px;
+    -fx-padding: 8px 16px;
+    -fx-cursor: hand;
+}
+
+.button:hover {
+    -fx-background-color: #45A29E;
+    -fx-text-fill: #0B0C10;
+}
+
+.button:disabled {
+    -fx-background-color: #1F2833;
+    -fx-text-fill: #66FCF1;
+    -fx-opacity: 0.6;
+}
+.scroll-pane > .viewport {
+    -fx-background-color: transparent; /* Makes the viewing area seamless */
+}
+.text-area, .text-field, .password-field, .combo-box {
+    -fx-control-inner-background: #1F2833;
+    -fx-text-fill: #C5C6C7;
+    -fx-background-color: #1F2833;
+    -fx-background-radius: 6px;
+    -fx-border-color: #45A29E;
+    -fx-border-radius: 6px;
+}
+
+.text-area .content {
+    -fx-background-color: #1F2833;
+}
+
+.combo-box .list-cell {
+    -fx-text-fill: #C5C6C7;
+    -fx-background-color: #1F2833;
+}
+
+.combo-box-popup .list-view {
+    -fx-background-color: #1F2833;
+}
+
+/* Tabs */
+.tab-pane .tab-header-area {
+    -fx-background-color: #0B0C10;
+    -fx-padding: 8px 8px 0 30px;
+}
+.tab-pane .tab-header-background {
+    -fx-background-color: #0B0C10;
+}
+.tab-pane .tab-header-area .tab {
+    -fx-background-color: #1F2833;
+    -fx-background-radius: 8px 8px 0 0;
+    -fx-padding: 10px 20px;
+    -fx-background-insets: 0 4px 0 0;
+}
+.tab-pane .tab-header-area .tab:hover {
+    -fx-background-color: #45A29E;
+}
+.tab-pane .tab-header-area .tab:hover .tab-label {
+    -fx-text-fill: #0B0C10;
+}
+.tab-pane .tab:selected .tab-label {
+    -fx-text-fill: #66FCF1;
+    -fx-font-weight: bold;
+}
+.tab-pane .tab-content-area {
+    -fx-background-color: #0B0C10;
+    -fx-padding: 15px;
+}
+
+/* SplitPane */
+.split-pane {
+    -fx-background-color: #0B0C10;
+}
+.split-pane-divider {
+    -fx-background-color: #45A29E;
+}
+
+/* 1. Main Table Container */
+.table-view {
+    -fx-background-color: #0B0C10; /* Deepest dark background */
+    -fx-border-color: #1F2833;    /* Dark slate border */
+    -fx-border-width: 1px;
+    -fx-border-radius: 6px;
+    -fx-background-radius: 6px;
+    -fx-font-family: "Segoe UI", Helvetica, Arial, sans-serif;
+    -fx-font-size: 13px;
+}
+
+/* Removes the inner border focus ring when table is clicked */
+.table-view:focused {
+    -fx-background-color: transparent;
+}
+
+/* 2. Column Headers Styling */
+.table-view .column-header-background {
+    -fx-background-color: #1F2833; /* Dark charcoal header panel */
+    -fx-border-color: transparent transparent #45A29E transparent; /* Muted teal accent line */
+    -fx-border-width: 0 0 2px 0;
+    -fx-padding: 0 0 1px 0;
+}
+
+.table-view .column-header {
+    -fx-background-color: transparent;
+    -fx-size: 42px; /* Generous header height */
+}
+
+/* Left-align and style header text */
+.table-view .column-header .label {
+    -fx-text-fill: #66FCF1; /* Bright electric cyan for headers */
+    -fx-font-weight: bold;
+    -fx-alignment: CENTER_LEFT;
+    -fx-padding: 0 0 0 12px;
+}
+
+/* Remove vertical dividers between column headers */
+.table-view .column-header .filler,
+.table-view .column-header-background .filler {
+    -fx-background-color: transparent;
+}
+
+/* 3. Table Rows & Cells */
+.table-view .table-row-cell {
+    -fx-background-color: #0B0C10;
+    -fx-border-color: transparent transparent #1F2833 transparent; /* Charcoal horizontal dividers */
+    -fx-border-width: 0 0 1px 0;
+}
+
+/* Alternating row colors for data readability */
+.table-view .table-row-cell:odd {
+    -fx-background-color: #11141a; /* Very slight variation of base dark */
+}
+
+.table-view .table-cell {
+    -fx-size: 38px;
+    -fx-text-fill: #C5C6C7; /* Soft silver-grey for comfortable reading */
+    -fx-alignment: CENTER_LEFT;
+    -fx-padding: 0 0 0 12px;
+}
+
+/* 4. Interactive Hover & Selection States */
+.table-view .table-row-cell:hover {
+    -fx-background-color: #1F2833; /* Highlights row in charcoal on hover */
+    -fx-cursor: hand;
+}
+
+.table-view .table-row-cell:selected {
+    -fx-background-color: #45A29E; /* Muted cyan/teal for selected state */
+}
+
+.table-view .table-row-cell:selected .table-cell {
+    -fx-text-fill: #0B0C10; /* High contrast dark text over selected row */
+    -fx-font-weight: bold;
+}
+
+/* 5. Scrollbar Clean-up to blend with the dark interface */
+.table-view .virtual-flow .scroll-bar:vertical,
+.table-view .virtual-flow .scroll-bar:horizontal {
+    -fx-background-color: #0B0C10;
+}
+
+.table-view .virtual-flow .scroll-bar .thumb {
+    -fx-background-color: #1F2833;
+    -fx-background-radius: 4px;
+    -fx-border-color: #45A29E;
+    -fx-border-width: 0.5px;
+}
+
+.table-view .virtual-flow .scroll-bar .thumb:hover {
+    -fx-background-color: #45A29E;
+}
+
+
+/* 1. Chart Container & Background */
+.chart {
+    -fx-background-color: #0B0C10; /* Deepest dark background */
+    -fx-font-family: "Segoe UI", Helvetica, Arial, sans-serif;
+    -fx-padding: 15px;
+}
+
+.chart-plot-background {
+    -fx-background-color: #0B0C10; /* Plot area matches main background */
+}
+
+/* 2. Axes (X and Y Lines & Labels) */
+.axis {
+    -fx-tick-label-fill: #C5C6C7;  /* Soft silver-grey for numbers/labels */
+    -fx-tick-label-font-size: 11px;
+}
+
+.axis:horizontal {
+    -fx-border-color: #1F2833 transparent transparent transparent; /* X-axis baseline */
+}
+
+.axis:vertical {
+    -fx-border-color: transparent #1F2833 transparent transparent; /* Y-axis baseline */
+}
+
+.axis-tick-mark {
+    -fx-stroke: #1F2833; /* Tiny tick mark indicators */
+}
+
+/* 3. Background Grid Lines */
+.chart-alternative-column-matrix {
+    -fx-fill: transparent;
+}
+.chart-alternative-row-matrix {
+    -fx-fill: transparent;
+}
+.chart-vertical-grid-lines {
+    -fx-stroke: #1F2833; /* Muted grid vertical tracks */
+    -fx-stroke-dash-array: 2 4; /* Clean dashed look */
+}
+.chart-horizontal-grid-lines {
+    -fx-stroke: #1F2833; /* Muted grid horizontal tracks */
+    -fx-stroke-dash-array: 2 4;
+}
+
+/* 4. Chart Title and Legend Styling */
+.chart-title {
+    -fx-text-fill: #66FCF1; /* Bright electric cyan for the main title */
+    -fx-font-size: 16px;
+    -fx-font-weight: bold;
+}
+
+.chart-legend {
+    -fx-background-color: #1F2833; /* Dark charcoal box for the legend */
+    -fx-background-radius: 4px;
+    -fx-padding: 8px;
+}
+
+.chart-legend-item {
+    -fx-text-fill: #C5C6C7; /* Text inside legend */
+    -fx-font-size: 12px;
+}
+
+/* 5. Data Series Lines & Symbols (Supports up to 2 Series) */
+
+/* --- Series 0 (Primary) --- */
+.default-color0.chart-series-line {
+    -fx-stroke: #66FCF1; /* Primary line is electric cyan */
+    -fx-stroke-width: 3px;
+}
+.default-color0.chart-line-symbol {
+    -fx-background-color: #45A29E, #0B0C10; /* Cyan ring with a dark center */
+    -fx-background-radius: 5px, 3px;
+    -fx-padding: 5px;
+}
+
+/* --- Series 1 (Secondary) --- */
+.default-color1.chart-series-line {
+    -fx-stroke: #45A29E; /* Secondary line is muted teal */
+    -fx-stroke-width: 2.5px;
+}
+.default-color1.chart-line-symbol {
+    -fx-background-color: #C5C6C7, #0B0C10; /* Silver ring with a dark center */
+    -fx-background-radius: 5px, 3px;
+    -fx-padding: 4px;
+}
+#appTitle {
+    /* 1. Typography */
+    -fx-font-family: "Montserrat", "Segoe UI Semibold", "Arial Black", sans-serif;
+    -fx-font-size: 26px;
+    -fx-font-weight: 900;              /* Extra bold weight for a strong brand feel */
+
+    /* 2. Coloring & Glow */
+    -fx-text-fill: #66FCF1;            /* Primary brand electric cyan */
+    /* Subtle cyan aura behind the text to mimic a sleek neon sign */
+    -fx-effect: dropshadow(three-pass-box, rgba(102, 252, 241, 0.3), 8, 0, 0, 0);
+
+    /* 3. Spacing & Positioning */
+    -fx-padding: 10px 20px 10px 30px;
+}
+
+/* 1. Base TextArea Styling */
+.text-area {
+    -fx-font-family: "Segoe UI", Helvetica, Arial, sans-serif;
+    -fx-font-size: 13px;
+    -fx-text-fill: #C5C6C7;              /* Soft silver-grey text for typing */
+    -fx-highlight-fill: #45A29E;         /* Color when user highlights/selects text */
+    -fx-highlight-text-fill: #0B0C10;    /* Text color inside text selection */
+}
+
+/* 2. Control Content & Inner Scroll Pane */
+.text-area .content {
+    -fx-background-color: #0B0C10;       /* Deep dark input background */
+    -fx-background-radius: 6px;
+    -fx-border-color: #1F2833;           /* Dark slate default border */
+    -fx-border-width: 1px;
+    -fx-border-radius: 6px;
+    -fx-padding: 8px;                    /* Inset padding so text isn't cramped */
+}
+
+/* 3. Focused State (When typing inside) */
+.text-area:focused .content {
+    -fx-border-color: #66FCF1;           /* Bright electric cyan border on focus */
+    /* Adds a subtle outer glow effect using standard CSS drop shadows */
+    -fx-effect: dropshadow(three-pass-box, rgba(102, 252, 241, 0.2), 6, 0, 0, 0);
+}
+
+/* 4. Placeholder Prompt Text styling */
+.text-area .text-area-placeholder {
+    -fx-text-fill: #536271;              /* Muted dark grey for placeholder text */
+    -fx-font-style: italic;
+}
+
+/* 5. Scrollbar styling to match the TableView exactly */
+.text-area .scroll-bar:vertical,
+.text-area .scroll-bar:horizontal {
+    -fx-background-color: transparent;
+}
+
+.text-area .scroll-bar .thumb {
+    -fx-background-color: #1F2833;
+    -fx-background-radius: 4px;
+    -fx-border-color: #45A29E;
+    -fx-border-width: 0.5px;
+}
+
+.text-area .scroll-bar .thumb:hover {
+    -fx-background-color: #45A29E;
+}
+
+.progress-bar {
+    -fx-background-color: transparent;
+}
+.progress-bar .track {
+    -fx-background-color: #1F2833;
+    -fx-background-radius: 4px;
+}
+.progress-bar .bar {
+    -fx-background-color: #66FCF1;
+    -fx-background-insets: 0;
+    -fx-background-radius: 4px;
+    -fx-padding: 4px;
+}
