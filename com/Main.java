@@ -218,14 +218,25 @@ public class Main extends Application {
         historyTable.getColumns().addAll(nameCol, typeCol, dateCol, scoreCol);
 
         Button refreshButton = new Button("Refresh History");
-        refreshButton.setOnAction(e -> {
-            try {
-                List<Review> reviews = new ReviewRepository().findAll();
-                historyTable.setItems(FXCollections.observableArrayList(reviews));
-            } catch (SQLException ex) {
-                // show error somewhere, e.g. a temporary Label
-            }
-        });
+//        refreshButton.setOnAction(e -> {
+//            try {
+//                List<Review> reviews = new ReviewRepository().findAll();
+//                historyTable.setItems(FXCollections.observableArrayList(reviews));
+//            } catch (SQLException ex) {
+//                // show error somewhere, e.g. a temporary Label
+//            }
+//        });
+//        refreshButton.setOnAction(e -> {
+//            try {
+//                List<Review> reviews = new ReviewRepository().findAll();
+//                historyTable.setItems(FXCollections.observableArrayList(reviews));
+//            } catch (SQLException ex) {
+//                // show error somewhere, e.g. a temporary Label
+//            }
+//        });
+        refreshButton.setOnAction(e -> refreshHistory(historyTable));
+        refreshHistory(historyTable);
+
 
         TextArea feedbackDetail = new TextArea();
         feedbackDetail.setEditable(false);
@@ -478,7 +489,14 @@ public class Main extends Application {
         thread.setDaemon(true);
         thread.start();
     }
-
+    private void refreshHistory(TableView<Review> historyTable) {
+        try {
+            List<Review> reviews = new ReviewRepository().findAll();
+            historyTable.setItems(FXCollections.observableArrayList(reviews));
+        } catch (SQLException ex) {
+            // show error somewhere, e.g. a temporary Label
+        }
+    }
     private void refreshDashboard(Label totalReviewsLabel, Label avgScoreLabel, Label topIssueLabel, Label lastFileLabel) {
         try{
             List<Review> reviews = new ReviewRepository().findAll();
